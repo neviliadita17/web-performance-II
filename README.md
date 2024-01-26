@@ -1,75 +1,41 @@
-# Nuxt 3 Minimal Starter
+# FCP (First Contenful Paint)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+FCP metric measures the time from when the user first navigated to the page to when any part of the page’s content is rendered on the screen
 
-## Setup
+# LCP (Largest Contenful Paint)
 
-Make sure to install the dependencies:
+LCP metric report the render time of the largest image or text block visible within the viewport, relative to when the user first navigate to the page
 
-```bash
-# npm
-npm install
+# CLS (Cumulative Layout Shift)
 
-# pnpm
-pnpm install
+CLS is a measure of the largest burst of *layout shift scores* for every [unexpected](https://web.dev/articles/cls#expected_vs_unexpected_layout_shifts) layout shift that occurs during the entire lifespan of a page.
 
-# yarn
-yarn install
+# Testing tools
 
-# bun
-bun install
+- Google PageSpeed Insights (https://pagespeed.web.dev/)
+- WebPageTest (https://www.webpagetest.org/)
+- GT Metrix (https://gtmetrix.com/)
+- Chrome Lighthouse (Extension)
+
+
+## --------------------------------------------------------------
+
+**Untuk delay hydration (tambahkan ke project)**
+
+    npm i -D nuxt-delay-hydration
+  
+**Add** di nuxt.config.ts :
+
+```
+modules: [
+    'nuxt-delay-hydration'
+  ],
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+delayHydration: {
+// enables nuxt-delay-hydration in dev mode for testing
+// NOTE: you should disable this once you've finished testing, it will break HMR
+debug: process.env.NODE_ENV === 'development'
+}
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
